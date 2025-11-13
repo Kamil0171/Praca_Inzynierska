@@ -1,0 +1,294 @@
+:root {
+  --bg: #F5F5F5;
+  --primary: #3366CC;
+  --primary-light: #6699FF;
+  --text-dark: #333333;
+  --text-medium: #555555;
+}
+
+.anim-wejscie {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+  will-change: opacity, transform;
+}
+
+.anim-wejscie.aktywna {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.przyklady-strona {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0 3rem;
+}
+
+.sekcja-naglowek {
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+.sch-naglowek {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 1.2rem + 2.2vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: .2px;
+
+  background: linear-gradient(
+    90deg,
+    #1f242b 0%,
+    #2a3038 20%,
+    #3a414e 50%,
+    #596373 80%,
+    #6b7483 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 1px 0 rgba(0,0,0,.04);
+
+  position: relative;
+  display: block;
+  padding-bottom: .7rem;
+
+  animation: schGradient 12s ease-in-out infinite alternate;
+}
+
+.sch-naglowek::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #4b5563, #9aa4b2);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 1.1s cubic-bezier(.2,.65,.2,1);
+}
+
+.sch-naglowek.aktywne-underline::after {
+  transform: scaleX(1);
+}
+
+.sch-naglowek:hover {
+  filter: drop-shadow(0 2px 10px rgba(51,102,204,.08));
+}
+
+@keyframes schGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sch-naglowek {
+    animation: none;
+  }
+}
+
+.przyklady-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .75rem;
+  margin: 0 0 1rem;
+  margin-left: -1rem;
+}
+
+.lista-przykladow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-left: -1rem;
+}
+
+.sekcja-przyklad {
+  width: 220px;
+  min-height: 220px;
+  background: #ffffff;
+  padding: 1.25rem 1.25rem 1rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.przyklad-zawartosc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  text-align: center;
+  width: 100%;
+}
+
+.sekcja-przyklad .przyklad-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: var(--primary);
+  margin: 0;
+  padding-bottom: .4rem;
+  position: relative;
+  width: max-content;
+}
+
+.sekcja-przyklad .przyklad-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 120px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform .45s ease-out;
+}
+
+.sekcja-przyklad.aktywna .przyklad-title::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.sekcja-przyklad .macierz tr {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.sekcja-przyklad.aktywna .macierz tr {
+  animation: wierszWchodzi .4s ease-out forwards;
+}
+
+@keyframes wierszWchodzi {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.przyklad-body {
+  max-height: 150px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.przyklad-body::-webkit-scrollbar {
+  display: none;
+}
+
+.macierz-wrap {
+  position: relative;
+  display: inline-block;
+  padding: .75rem 1.25rem;
+}
+
+.macierz-wrap::before,
+.macierz-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  box-sizing: border-box;
+}
+
+.macierz-wrap::before {
+  left: 0;
+  border-left: 2px solid var(--primary);
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+}
+
+.macierz-wrap::after {
+  right: -1px;
+  border-right: 2px solid var(--primary);
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.macierz {
+  border-collapse: collapse;
+}
+
+.macierz td {
+  padding: .22rem .55rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.btn-rozwiaz {
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: .6rem 1.1rem;
+  border-radius: .5rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .15s ease, background-color .2s ease;
+}
+
+.btn-rozwiaz:hover {
+  background-color: color-mix(in srgb, var(--primary) 85%, black);
+  transform: translateY(-1px);
+}
+
+.powrot-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.powrot-btn:hover {
+  background-color: color-mix(in srgb, var(--primary) 85%, black);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .lista-przykladow {
+    margin-left: 0;
+  }
+
+  .przyklady-toolbar {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .sekcja-przyklad {
+    width: 100%;
+    min-height: unset;
+  }
+
+  .sekcja-przyklad .przyklad-title::after {
+    width: 120px;
+  }
+}

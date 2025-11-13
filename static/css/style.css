@@ -1,0 +1,91 @@
+:root {
+  --bg: #F5F5F5;
+  --primary: #3366CC;
+  --primary-light: #6699FF;
+  --text-dark: #333333;
+  --text-medium: #555555;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+}
+
+.pasek-zadan {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.pasek-zadan ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.pasek-zadan li {
+    margin: 0 1rem;
+}
+.pasek-zadan a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.pasek-zadan a:hover {
+    color: var(--primary-light);
+}
+
+.kontener-glowny {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 1rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kontener-naglowek {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.kontener-naglowek h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.pasek-zadan {
+  transition: transform .25s ease, opacity .2s ease;
+  will-change: transform;
+}
+
+.pasek-zadan.ukryty {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pasek-zadan {
+  transition: transform .25s ease, opacity .2s ease;
+  will-change: transform;
+}
+
+.pasek-zadan.preload {
+  transition: none !important;
+}
+
+.pasek-zadan.ukryty {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,81 @@
+@import url("../css/macierzschodkowaprzyklady.css");
+
+:root{
+  --math-rozmiar: 1.22rem;
+  --math-rozmiar-ciasny: 1.10rem;
+  --math-szarosc-klamry: #39424e;
+}
+
+.gauss-strona .sekcja-przyklad{
+  max-width: 530px;
+  transform: translateX(2px);
+}
+
+.gauss-strona .przyklad-zawartosc,
+.gauss-strona .przyklad-body{
+  overflow: visible;
+}
+
+.gauss-strona .przyklad-math{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.05rem 16px;
+  min-height: 156px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+.gauss-strona .przyklad-math .tex-src{
+  display: inline-block;
+  font-size: var(--math-rozmiar);
+  line-height: 1.24;
+  white-space: pre-wrap;
+}
+
+.gauss-strona .przyklad-math .katex{
+  font-size: var(--math-rozmiar);
+  line-height: 1.24;
+}
+.gauss-strona .przyklad-math .katex-display{
+  margin: 0;
+}
+
+.gauss-strona .przyklad-math.math-ciasny{
+  min-height: 164px;
+  padding-left: 14px;
+  padding-right: 20px;
+}
+.gauss-strona .przyklad-math.math-ciasny .tex-src,
+.gauss-strona .przyklad-math.math-ciasny .katex{
+  font-size: var(--math-rozmiar-ciasny);
+}
+
+.gauss-strona .przyklad-math::before,
+.gauss-strona .przyklad-math::after,
+.gauss-strona .przyklad-body::before,
+.gauss-strona .przyklad-body::after,
+.gauss-strona .sekcja-przyklad::before,
+.gauss-strona .sekcja-przyklad::after{
+  content: none !important;
+  display: none !important;
+}
+.gauss-strona .sekcja-przyklad,
+.gauss-strona .przyklad-body,
+.gauss-strona .przyklad-math{
+  list-style: none !important;
+}
+
+.gauss-strona .przyklad-math.anim-uklad{
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.btn-rozwiaz.klik{
+  transform: translateY(1px);
+  filter: brightness(0.98);
+}

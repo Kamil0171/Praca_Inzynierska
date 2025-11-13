@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block tytul %}Metoda eliminacji Gaussa{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/gauss.css') }}">
+{% endblock %}
+
+{% block content %}
+  <section class="gauss-sekcja">
+    <h2 class="gauss-naglowek">Metoda eliminacji Gaussa</h2>
+
+    <div class="gauss-tekst">
+      <p>
+        Metoda eliminacji Gaussa służy do rozwiązywania układów równań liniowych.
+        Polega na przekształceniu macierzy współczynników do postaci
+        <a href="/macierzschodkowa" class="link-wewnetrzny">schodkowej</a>
+        za pomocą tzw. operacji elementarnych na wierszach:
+      </p>
+      <ol>
+        <li>zamiany dwóch wierszy miejscami,</li>
+        <li>mnożenia wiersza przez liczbę różną od zera,</li>
+        <li>dodania do jednego wiersza innego wiersza pomnożonego przez liczbę.</li>
+      </ol>
+      <p>
+        Celem jest uzyskanie zer poniżej elementów głównych. Ostatecznie otrzymuje się macierz
+        w postaci schodkowej, co pozwala na szybkie rozwiązanie układu równań
+        metodą podstawiania wstecznego.
+      </p>
+    </div>
+
+    <div class="gauss-podsekcje">
+      <h3>Co oznacza zapis \(A\,x=b\) i \([A\mid b]\)?</h3>
+      <ul>
+        <li><strong>\(A\)</strong> – macierz współczynników (tabela liczb przy niewiadomych),</li>
+        <li><strong>\(x\)</strong> – kolumna niewiadomych,</li>
+        <li><strong>\(b\)</strong> – kolumna prawych stron równań.</li>
+      </ul>
+      <p>
+        Macierz rozszerzona \([A\mid b]\) powstaje, gdy do \(A\) „dopisujemy” z prawej kolumnę \(b\);
+        dzięki temu wykonujemy te same kroki jednocześnie na całym układzie.
+      </p>
+
+      <h3>Jakie kroki są dozwolone? (operacje na wierszach)</h3>
+      <p>Wykorzystujemy tylko trzy operacje:</p>
+      <ol>
+        <li>zamiana dwóch wierszy,</li>
+        <li>pomnożenie wiersza przez liczbę \( \ne 0 \),</li>
+        <li>dodanie do wiersza innego wiersza pomnożonego przez liczbę.</li>
+      </ol>
+      <p>Te operacje nie zmieniają zbioru rozwiązań.</p>
+
+      <h3>Eliminacja Gaussa — przepis „krok po kroku”</h3>
+      <ol>
+        <li>Zapisz układ jako \([A\mid b]\).</li>
+        <li>Idź kolumna po kolumnie: jeśli u góry kolumny jest 0, zamień wiersze, aby była tam liczba \( \ne 0 \).</li>
+        <li>Wyzeruj elementy poniżej tej liczby, dodając odpowiednie wielokrotności wiersza wyżej do wierszy niższych.</li>
+        <li>Gdy masz postać schodkową (REF), policz niewiadome od dołu (podstawianie wsteczne).</li>
+      </ol>
+      <p class="uwaga">
+        Chcesz porządek „do końca”? Można też wyzerować liczby nad „pierwszymi” jedynkami – wtedy otrzymujesz
+        zredukowaną postać schodkową (RREF).
+      </p>
+
+      <h3>Skąd wiadomo, czy rozwiązań jest 0, 1 czy nieskończenie wiele?</h3>
+      <p>
+        Korzystamy z twierdzenia Rouché–Capellego: porównujemy rząd (rank) macierzy \(A\) i \([A\mid b]\).
+      </p>
+      <ul>
+        <li>rzędy różne → brak rozwiązań,</li>
+        <li>rzędy równe i równe liczbie niewiadomych → dokładnie jedno rozwiązanie,</li>
+        <li>rzędy równe, ale mniejsze od liczby niewiadomych → nieskończenie wiele rozwiązań.</li>
+      </ul>
+
+      <h3>Krótka „legenda” pojęć</h3>
+      <ul>
+        <li><strong>Rząd (rank) macierzy</strong> – liczba niezależnych wierszy/kolumn; w praktyce równa liczbie niezerowych wierszy w postaci schodkowej.</li>
+        <li><strong>Postać schodkowa (REF)</strong> – w kolejnych wierszach „pierwsze” niezerowe elementy pojawiają się coraz dalej w prawo, a zera są pod nimi.</li>
+        <li><strong>Zredukowana postać schodkowa (RREF)</strong> – jak wyżej, ale „pierwsze” elementy są równe 1 i w ich kolumnach są same zera (również nad nimi).</li>
+      </ul>
+
+      <h3>Przykład macierzy rozszerzonej (ilustracja zapisu, bez rozwiązywania)</h3>
+      <p class="macierz-tex">
+        \( A=\begin{bmatrix}1&2\\[2pt]3&8\end{bmatrix},\quad
+           b=\begin{bmatrix}5\\[2pt]17\end{bmatrix},\quad
+           [A\mid b]=\left[\begin{array}{cc|c}
+           1&2&5\\
+           3&8&17
+           \end{array}\right] \).
+      </p>
+    </div>
+  </section>
+
+  <section class="gauss-sekcja">
+    <div class="cta-center">
+      <a href="{{ url_for('gauss_przyklady.widok_gauss_przyklady') }}" class="btn-przyklady">
+        Przykładowe rozwiązania
+      </a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block skrypty %}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+
+  <script src="{{ url_for('static', filename='js/gauss.js') }}"></script>
+{% endblock %}

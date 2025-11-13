@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block tytul %}Kalkulator{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='shared/gauss-kroki.css') }}">
+<link rel="stylesheet" href="{{ url_for('kalkulator.static', filename='css/kalkulator.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="sekcja-kalkulator page-enter">
+  <div class="kontener">
+
+    <header class="naglowek-kalkulatora">
+      <div class="hero">
+        <div class="hero-ikona" aria-hidden="true">
+          <svg viewBox="0 0 120 90" width="64" height="48" fill="none" stroke="currentColor" stroke-width="3" role="img" aria-label="Macierz rozszerzona">
+            <rect x="8" y="10" width="72" height="70" rx="8"></rect>
+            <line x1="88" y1="10" x2="88" y2="80"></line>
+            <g opacity="0.5">
+              <circle cx="24" cy="28" r="2.5"></circle>
+              <circle cx="44" cy="28" r="2.5"></circle>
+              <circle cx="64" cy="28" r="2.5"></circle>
+              <circle cx="24" cy="45" r="2.5"></circle>
+              <circle cx="44" cy="45" r="2.5"></circle>
+              <circle cx="64" cy="45" r="2.5"></circle>
+              <circle cx="24" cy="62" r="2.5"></circle>
+              <circle cx="44" cy="62" r="2.5"></circle>
+              <circle cx="64" cy="62" r="2.5"></circle>
+            </g>
+            <g opacity="0.7">
+              <circle cx="102" cy="28" r="2.5"></circle>
+              <circle cx="102" cy="45" r="2.5"></circle>
+              <circle cx="102" cy="62" r="2.5"></circle>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-tekst">
+          <h1>Eliminacja Gaussa – kalkulator krok po kroku</h1>
+        </div>
+      </div>
+
+      <div class="kafelki-instrukcja" aria-label="Jak korzystać">
+        <div class="kafelek">
+          <div class="kaf-ikona" data-step="1" aria-hidden="true"></div>
+          <div class="kaf-tekst">
+            <div class="kaf-tytul">Wybierz rozmiar</div>
+            <div class="kaf-opis">Układ od 2×2 do 9×9.</div>
+          </div>
+        </div>
+        <div class="kafelek">
+          <div class="kaf-ikona" data-step="2" aria-hidden="true"></div>
+          <div class="kaf-tekst">
+            <div class="kaf-tytul">Wpisz wartości</div>
+            <div class="kaf-opis">Dozwolone: liczby całkowite, ułamki (a/b), liczby dziesiętne.</div>
+          </div>
+        </div>
+        <div class="kafelek">
+          <div class="kaf-ikona" data-step="3" aria-hidden="true"></div>
+          <div class="kaf-tekst">
+            <div class="kaf-tytul">Kliknij „Rozwiąż”</div>
+            <div class="kaf-opis">Nawiguj: <b>Poprzedni</b> / <b>Następny</b> / <b>Zresetuj</b>.</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <form id="formularz-kalkulatora" class="formularz-kalkulatora" autocomplete="off" novalidate>
+      <fieldset class="pole-rozmiar">
+        <legend>Macierz rozszerzona <span class="oznaczenie">[A|b]</span></legend>
+        <label for="rozmiar-n">Rozmiar układu:</label>
+        <select id="rozmiar-n" name="rozmiar-n">
+          <option value="2">2 × 2</option>
+          <option value="3" selected>3 × 3</option>
+          <option value="4">4 × 4</option>
+          <option value="5">5 × 5</option>
+          <option value="6">6 × 6</option>
+          <option value="7">7 × 7</option>
+          <option value="8">8 × 8</option>
+          <option value="9">9 × 9</option>
+        </select>
+      </fieldset>
+
+      <div id="komunikat-form" class="komunikat-form" role="status" aria-live="polite"></div>
+      <div id="kontener-siatki" class="kontener-siatki"></div>
+
+      <div class="przyciski-formularza">
+        <button type="button" id="przycisk-wyczysc" class="btn btn-szary">Wyczyść</button>
+        <button type="submit" id="przycisk-rozwiaz" class="btn btn-niebieski" disabled>Rozwiąż</button>
+      </div>
+    </form>
+
+    <div id="gauss-kroki-root" class="gauss-kroki-root" aria-live="polite"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block skrypty %}
+<script src="{{ url_for('static', filename='shared/gauss-kroki.js') }}"></script>
+<script src="{{ url_for('kalkulator.static', filename='js/kalkulator.js') }}"></script>
+{% endblock %}

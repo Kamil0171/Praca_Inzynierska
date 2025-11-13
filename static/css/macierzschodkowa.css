@@ -1,0 +1,322 @@
+.sch-sekcja {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.sch-sekcja.aktywna {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sch-naglowek {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+  display: inline-block;
+  position: relative;
+}
+
+.sch-naglowek::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.sch-naglowek.aktywne-underline::after {
+  transform: scaleX(1);
+}
+
+.sch-tekst {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-medium);
+}
+
+.sch-tekst ul {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.sch-tekst li {
+  margin-bottom: 0.5rem;
+}
+
+.macierze-siata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-right: 1.5rem;
+}
+
+.macierz-kontener {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 1.25rem;
+  margin: 0 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.sch-sekcja.aktywna .macierz-kontener {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.macierz-kontener::before,
+.macierz-kontener::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  box-sizing: border-box;
+}
+
+.macierz-kontener::before {
+  left: 0;
+  border-left: 2px solid var(--primary);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.macierz-kontener::after {
+  right: -1px;
+  border-right: 2px solid var(--primary);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.macierz {
+  border-collapse: collapse;
+}
+
+.macierz td {
+  padding: 0.3rem 0.6rem;
+  font-family: monospace;
+  text-align: center;
+}
+
+.macierz tr {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: wierszWchodzi 0.4s ease-out forwards;
+}
+
+@keyframes wierszWchodzi {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.powrot-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.powrot-btn:hover {
+  background-color: color-mix(in srgb, var(--primary) 85%, black);
+  transform: translateY(-2px);
+}
+
+.sch-sekcja.definicja {
+  position: relative;
+}
+
+.fakt-kontener {
+  background-color: #e6f0ff;
+  border: 1px solid #b3d1ff;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  color: #0d2a63;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fakt-kontener em,
+.fakt-tresc em {
+  font-style: normal;
+}
+
+.fakt-naglowek {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.fakt-tresc {
+  margin: 0;
+}
+
+.fakt-uzasadnienie {
+  margin-top: 0.5rem;
+}
+
+.link-operacje {
+  color: #0d2a63;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+
+  position: relative;
+  display: inline-block;
+  padding: 0 .15rem;
+  border-radius: .35rem;
+  transition: transform .15s ease, color .2s ease, background-color .2s ease;
+}
+
+.link-operacje:hover {
+  background: #eaf3ff;
+}
+
+.link-operacje:focus-visible {
+  outline: 2px solid #b3d1ff;
+  outline-offset: 2px;
+  border-radius: .35rem;
+}
+
+.link-operacje.klik {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.link-operacje::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: rgba(13, 42, 99, 0.18);
+  border-radius: 999px;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.link-operacje.klik::after {
+  animation: linkRipple .45s ease-out forwards;
+}
+
+@keyframes linkRipple {
+  0%   { opacity: .35; transform: translate(-50%, -50%) scale(0); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(6); }
+}
+
+.operacje-kontener {
+  background: #f7fbff;
+  border: 1px solid #d5e9ff;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin-top: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+
+  transition:
+    max-height .38s ease,
+    opacity .28s ease,
+    transform .38s ease,
+    margin-top .38s ease;
+}
+
+.operacje-kontener.widoczny {
+  max-height: var(--operacje-h, 600px);
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0.75rem;
+  pointer-events: auto;
+}
+
+.operacje-naglowek {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.operacje-naglowek h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+.operacje-zamknij {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  color: var(--text-dark);
+}
+
+.operacje-zamknij:hover {
+  background: #eaf3ff;
+}
+
+.operacje-lista {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.operacje-lista li {
+  list-style: none;
+  padding-left: 0;
+}
+
+.btn-przyklady {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color .2s ease-in-out, transform .15s ease-in-out;
+}
+.btn-przyklady:hover {
+  background-color: color-mix(in srgb, var(--primary) 85%, black);
+  transform: translateY(-2px);
+}

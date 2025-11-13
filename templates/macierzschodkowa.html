@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block tytul %}Macierz schodkowa{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/macierzschodkowa.css') }}">
+{% endblock %}
+
+{% block content %}
+  <section class="sch-sekcja definicja">
+    <a href="{{ url_for('gauss') }}" class="powrot-btn">Powrót</a>
+    <h2 class="sch-naglowek">Definicja macierzy schodkowej</h2>
+    <div class="sch-tekst">
+      <p>Mówimy, że macierz <em>A</em> ∈ M<sub>m×n</sub>(ℝ) jest w <strong>postaci schodkowej</strong>, jeżeli spełnia warunki:</p>
+      <ul>
+        <li>każdy wiersz zerowy (składający się wyłącznie z samych zer) znajduje się poniżej każdego wiersza niezerowego,</li>
+        <li>w każdym wierszu pierwszy (licząc od lewej) niezerowy element występuje w kolumnie znajdującej się po prawej stronie w stosunku do pierwszego niezerowego elementu wiersza poprzedniego.</li>
+      </ul>
+      <p>Jest to standardowa forma ułatwiająca rozwiązywanie układów równań, pozwalająca na zastosowanie podstawienia wstecznego.</p>
+    </div>
+  </section>
+
+  <section class="sch-sekcja">
+    <h2 class="sch-naglowek">Przykładowe macierze schodkowe</h2>
+    <div class="sch-tekst">
+      <div class="macierze-siata">
+        {% for macierz in macierze %}
+          <div class="macierz-kontener" aria-label="Macierz schodkowa {{ loop.index }}">
+            <table class="macierz">
+              {% set lista = macierz.tolist() if macierz.tolist is defined else macierz %}
+              {% for wiersz in lista %}
+                <tr data-opoznienie="{{ (0.3 + (loop.index0 * 0.2)) | round(2) }}">
+                  {% for element in wiersz %}
+                    <td>{{ element }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="sch-sekcja">
+    <h2 class="sch-naglowek">Przykłady macierzy, które <span class="negacja">nie</span> są zapisane w postaci schodkowej</h2>
+    <div class="sch-tekst">
+      <div class="macierze-siata">
+        {% for macierz in macierze_nieschodkowe %}
+          <div class="macierz-kontener" aria-label="Macierz nieschodkowa {{ loop.index }}">
+            <table class="macierz">
+              {% set lista = macierz.tolist() if macierz.tolist is defined else macierz %}
+              {% for wiersz in lista %}
+                <tr data-opoznienie="{{ (0.3 + (loop.index0 * 0.2)) | round(2) }}">
+                  {% for element in wiersz %}
+                    <td>{{ element }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="sch-sekcja">
+    <div class="fakt-kontener" aria-live="polite">
+      <div class="fakt-naglowek">Fakt</div>
+      <p class="fakt-tresc">
+        Każdą macierz można za pomocą
+        <a href="#" class="link-operacje" id="pokaz-operacje">operacji elementarnych</a>
+        sprowadzić do <em>postaci schodkowej zredukowanej</em>.
+      </p>
+    </div>
+
+    <div id="kontener-operacje" class="operacje-kontener" aria-hidden="true" role="region" aria-label="Operacje elementarne">
+      <div class="operacje-naglowek">
+        <h3>Operacje elementarne na wierszach macierzy</h3>
+        <button class="operacje-zamknij" id="zamknij-operacje" aria-label="Zamknij opis operacji">✕</button>
+      </div>
+      <ul class="operacje-lista">
+        <li>➤ dodać do jednego wiersza macierzy inny wiersz pomnożony przez liczbę,</li>
+        <li>➤ zamienić dwa wiersze miejscami,</li>
+        <li>➤ mnożyć wiersz przez liczbę różną od zera.</li>
+      </ul>
+      <p>
+        Te trzy opisane powyżej operacje nazywamy
+        <strong>operacjami elementarnymi na wierszach</strong>.
+        Odpowiadają one tym samym operacjom wykonywanym na równaniach układu równań.
+      </p>
+    </div>
+
+    <p class="sch-tekst fakt-uzasadnienie">
+      Powyższy fakt jest niezwykle ważny, ponieważ dzięki niemu możemy rozwiązywać dowolnie skomplikowane
+      układy równań liniowych. Wystarczy sprowadzić do postaci schodkowej zredukowanej macierz
+      odpowiadającą takiemu układowi, a następnie odczytać z niej rozwiązanie.
+    </p>
+  </section>
+
+  <section class="sch-sekcja">
+    <h2 class="sch-naglowek">Przykłady macierzy zapisanych w zredukowanej postaci schodkowej</h2>
+    <div class="sch-tekst">
+      <div class="macierze-siata">
+        {% for macierz in macierze_zredukowane %}
+          <div class="macierz-kontener" aria-label="Macierz zredukowana {{ loop.index }}">
+            <table class="macierz">
+              {% set lista = macierz.tolist() if macierz.tolist is defined else macierz %}
+              {% for wiersz in lista %}
+                <tr data-opoznienie="{{ (0.3 + (loop.index0 * 0.2)) | round(2) }}">
+                  {% for element in wiersz %}
+                    <td>{{ element }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="sch-sekcja">
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="{{ url_for('przyklady.widok_macierz_schodkowa_przyklady') }}" class="btn-przyklady">
+        Przykłady sprowadzania macierzy do postaci macierzy schodkowej
+      </a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block skrypty %}
+  <script src="{{ url_for('static', filename='js/macierzschodkowa.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tytul %}Aplikacja wspomagająca naukę algebry liniowej{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block style %}{% endblock %}
+</head>
+<body>
+  <nav class="pasek-zadan">
+    <ul>
+      <li><a href="{{ url_for('glowna') }}">Strona główna</a></li>
+      <li><a href="{{ url_for('gauss') }}">Czym jest metoda eliminacji Gaussa?</a></li>
+      <li><a href="{{ url_for('gauss_przyklady.widok_gauss_przyklady') }}">Przykładowe rozwiązania</a></li>
+    </ul>
+  </nav>
+
+  <div class="kontener-glowny">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <script src="{{ url_for('static', filename='shared/mathjax-init.js') }}"></script>
+  {% block skrypty %}{% endblock %}
+</body>
+</html>

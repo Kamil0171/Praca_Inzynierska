@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block tytul %}Sprowadzanie macierzy do postaci schodkowej – przykłady{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="{{ url_for('przyklady.static', filename='css/macierzschodkowaprzyklady.css') }}">
+  <link rel="stylesheet" href="{{ url_for('przyklady.static', filename='css/mschprozwiaz.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="przyklady-strona">
+    <section class="sekcja-naglowek anim-wejscie">
+      <h1 class="sch-naglowek">
+        Sprowadzanie macierzy do postaci schodkowej – przykłady
+      </h1>
+    </section>
+
+    <div class="przyklady-toolbar anim-wejscie">
+      <a href="{{ url_for('macierzschodkowa.widok_macierzy_schodkowej') }}" class="powrot-btn">Powrót</a>
+    </div>
+
+    <section class="sekcja-przyklady">
+      <div class="lista-przykladow">
+        {% for M in macierze %}
+          <section class="sekcja-przyklad przyklad-sekcja anim-wejscie"
+                   data-api-kroki="{{ url_for('przyklady.api_kroki_msch') }}">
+            <div class="przyklad-zawartosc">
+              <h2 class="przyklad-title">Przykład {{ loop.index }}</h2>
+
+              <div class="przyklad-body">
+                <div class="macierz-wrap" aria-label="Przykład {{ loop.index }}">
+                  <table class="macierz">
+                    {% for w in M %}
+                      <tr>
+                        {% for el in w %}
+                          <td>{{ el }}</td>
+                        {% endfor %}
+                      </tr>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+
+              <button type="button" class="btn-rozwiaz">Rozwiąż</button>
+            </div>
+          </section>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+{% block skrypty %}
+  <script src="{{ url_for('przyklady.static', filename='js/macierzschodkowaprzyklady.js') }}"></script>
+  <script defer src="{{ url_for('przyklady.static', filename='js/mschprozwiaz.js') }}?v=3"></script>
+{% endblock %}

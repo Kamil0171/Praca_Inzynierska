@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block tytul %}Strona główna{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/glowna.css') }}">
+{% endblock %}
+
+{% block content %}
+<header class="sekcja-hero">
+  <div class="hero-tekst">
+    <h1>Aplikacja wspomagająca naukę algebry liniowej</h1>
+    <p class="lead">
+      Interaktywne objaśnienia i obliczenia <strong>metodą eliminacji Gaussa</strong> —
+      krok po kroku, z uzasadnieniem każdej wykonanej operacji wierszowej.
+      Narzędzie edukacyjne dla osób, które chcą zrozumieć <em>jak</em> i <em>dlaczego</em> ta metoda działa.
+    </p>
+  </div>
+</header>
+
+<section class="sekcja-cta">
+  <div class="karta-cta">
+    <a href="{{ url_for('kalkulator.indeks') }}"
+       class="przycisk przycisk-cta"
+       role="button">
+      Przejdź do obliczeń
+    </a>
+  </div>
+</section>
+{% endblock %}
+
+{% block skrypty %}
+  <script src="{{ url_for('static', filename='js/glowna.js') }}"></script>
+{% endblock %}

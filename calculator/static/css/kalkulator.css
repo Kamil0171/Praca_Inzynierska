@@ -1,0 +1,96 @@
+.sekcja-kalkulator { padding: 24px 0 56px; overflow-x: hidden; }
+.sekcja-kalkulator .kontener { max-width: 1100px; margin: 0 auto; padding: 0 16px; overflow-x: hidden; }
+
+@keyframes page-enter { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:translateY(0)} }
+.sekcja-kalkulator.page-enter { animation: page-enter 520ms cubic-bezier(.22,1,.36,1) both; }
+
+.naglowek-kalkulatora { margin: 8px 0 18px; }
+.hero {
+  display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center;
+  background: linear-gradient(180deg,#f3f7ff 0%,#fff 60%); border: 1px solid #e6ecfb;
+  border-radius: 16px; padding: 16px; box-shadow: 0 8px 22px rgba(26,41,83,.06);
+}
+.hero-ikona { color: #3b82f6; display:flex; align-items:center; justify-content:center; }
+.hero-tekst h1 { margin: 0; font-size: 1.6rem; line-height: 1.25; }
+
+.kafelki-instrukcja { margin-top: 12px; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.kafelek {
+  display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: center;
+  background: #fff; border: 1px solid #e8edf8; border-radius: 14px; padding: 10px 12px;
+  box-shadow: 0 6px 16px rgba(13,32,72,.05);
+}
+.kaf-ikona {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: radial-gradient(100% 100% at 30% 20%, #ffffff 0%, #eff6ff 100%);
+  border: 2px solid #9cc0ff;
+  display: grid; place-items: center;
+  box-shadow: inset 0 1px 0 #ffffff, 0 1px 2px rgba(29,78,216,.08);
+  color: #1d4ed8; font-weight: 800; font-size: 1.05rem; line-height: 1;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+.kaf-ikona::after { content: attr(data-step); }
+.kaf-tytul { font-weight: 700; margin-bottom: 3px; }
+.kaf-opis  { color: #64748b; font-size: 0.95rem; }
+
+.formularz-kalkulatora { background:#fff; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.08); padding:16px; margin-bottom:24px; }
+.formularz-kalkulatora fieldset { border:none; margin:8px 0 12px; padding:0; }
+.formularz-kalkulatora legend { font-weight:600; margin-bottom:6px; }
+.pole-rozmiar label { margin-right: 8px; }
+.pole-rozmiar select { padding:6px 10px; border-radius:8px; border:1px solid #d5d8df; background:#fff; }
+
+.komunikat-form { min-height: 18px; margin-top: 8px; font-size: .95rem; color:#475569; }
+.komunikat-form.blad { color:#b00020; }
+.komunikat-form.ok { color:#1b5e20; }
+
+.kontener-siatki { margin-top:16px; overflow:hidden; will-change:height; display:flex; justify-content:center; }
+
+.siatka-macierz {
+  display:inline-grid; gap:6px; padding:10px;
+  border-radius:12px; background:#f7f9fc; border:1px solid #e5e9f2;
+  will-change:opacity,transform;
+}
+.siatka-macierz .separator-b { align-self:stretch; width:2px; background:#9aa7c0; margin:0 4px; }
+
+.pole-wrap { position: relative; }
+
+.pole {
+  width:64px; max-width:84px; padding:6px 8px; border:1px solid #cfd6e4; border-radius:8px;
+  background:#fff; font-size:.92rem; text-align:center;
+}
+.pole::placeholder { color:#c0c6d4; }
+.pole:focus { outline:none; border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.15); }
+.pole-bledne { border-color:#ef4444 !important; box-shadow:0 0 0 3px rgba(239,68,68,.18) !important; }
+
+.siatka-macierz.pre-in { opacity:0; transform:scale(.984); }
+@keyframes gk-fade-in { from{opacity:0; transform:scale(.984)} to{opacity:1; transform:scale(1)} }
+.siatka-macierz.fade-in { animation:gk-fade-in 560ms cubic-bezier(.22,1,.36,1) both; }
+@keyframes gk-item-in { from{opacity:0; transform:translateY(3px)} to{opacity:1; transform:translateY(0)} }
+.pole.anim-in { animation:gk-item-in 460ms cubic-bezier(.22,1,.36,1) both; }
+
+.przyciski-formularza { margin-top:16px; display:flex; gap:10px; }
+.btn { border:none; border-radius:10px; padding:10px 16px; cursor:pointer; font-weight:600; }
+.btn-niebieski { background:#2563eb; color:#fff; } .btn-niebieski:hover{ background:#1e40af; }
+.btn-szary { background:#e5e7eb; color:#111827; } .btn-szary:hover{ background:#d1d5db; }
+.btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+.gauss-kroki-root { margin-top:18px; }
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero-ikona { margin-bottom: 6px; }
+  .kafelki-instrukcja { grid-template-columns: 1fr; }
+}
+
+@keyframes pole-flash-blad {
+  0%   { box-shadow:0 0 0 3px rgba(239,68,68,.24); }
+  60%  { box-shadow:0 0 0 1px rgba(239,68,68,.10); }
+  100% { box-shadow:none; }
+}
+.pole-flash-blad { animation: pole-flash-blad 900ms ease-out; }
+
+.kafelek-blad {
+  border-color:#ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239,68,68,.12), 0 10px 22px rgba(239,68,68,.15) !important;
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 70%) !important;
+}
+.kafelek-blad .kaf-opis { color:#b00020 !important; }
