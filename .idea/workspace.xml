@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6560f606-1b5c-4cfb-9c35-6ede4896ec97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/static/css/audio.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/static/js/audio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/templates/gaussprzyklady.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/templates/gaussprzyklady.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PracaInzynierska.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PracaInzynierska.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/gauss.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/gauss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/macierzschodkowa.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/macierzschodkowa.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gauss.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gauss.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macierzschodkowa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/macierzschodkowa.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kamil0171&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kamil0171/PracaInzynierska.git&quot;,
+    &quot;accountId&quot;: &quot;00345499-1a06-4d41-976e-22ff5da5cf8b&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -57,14 +71,14 @@
     &quot;Python.PracaInzynierska.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/PythonProjects/microblog-main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -238,6 +252,11 @@
       <workItem from="1762722652734" duration="380000" />
       <workItem from="1762939420281" duration="5220000" />
       <workItem from="1763022471973" duration="9234000" />
+      <workItem from="1763128013259" duration="4000" />
+      <workItem from="1763278675112" duration="3900000" />
+      <workItem from="1763372748860" duration="2591000" />
+      <workItem from="1763410212636" duration="1039000" />
+      <workItem from="1763454453023" duration="231000" />
     </task>
     <servers />
   </component>
@@ -256,7 +275,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PracaInzynierska$PracaInzynierska.coverage" NAME="PracaInzynierska Coverage Results" MODIFIED="1763022478445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/PracaInzynierska$PracaInzynierska.coverage" NAME="PracaInzynierska Coverage Results" MODIFIED="1763372750457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/PracaInzynierska$main.coverage" NAME="main Coverage Results" MODIFIED="1757321511256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1762600153304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

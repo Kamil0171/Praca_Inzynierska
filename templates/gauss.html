@@ -15,7 +15,11 @@
         Metoda eliminacji Gaussa służy do rozwiązywania układów równań liniowych.
         Polega na przekształceniu macierzy współczynników do postaci
         <a href="/macierzschodkowa" class="link-wewnetrzny">schodkowej</a>
-        za pomocą tzw. operacji elementarnych na wierszach:
+        za pomocą tzw. operacji elementarnych na wierszach
+        <span class="odnosnik-zrodlo">
+          [<a href="https://www.naukowiec.org/wiedza/matematyka/metoda-eliminacji-gaussa_621.html"
+              target="_blank" rel="noopener noreferrer">1</a>]
+        </span>:
       </p>
       <ol>
         <li>zamiany dwóch wierszy miejscami,</li>
@@ -25,7 +29,11 @@
       <p>
         Celem jest uzyskanie zer poniżej elementów głównych. Ostatecznie otrzymuje się macierz
         w postaci schodkowej, co pozwala na szybkie rozwiązanie układu równań
-        metodą podstawiania wstecznego.
+        metodą podstawiania wstecznego
+        <span class="odnosnik-zrodlo">
+          [<a href="https://www.naukowiec.org/wiedza/matematyka/metoda-eliminacji-gaussa_621.html"
+              target="_blank" rel="noopener noreferrer">1</a>]
+        </span>.
       </p>
     </div>
 
@@ -48,7 +56,13 @@
         <li>pomnożenie wiersza przez liczbę \( \ne 0 \),</li>
         <li>dodanie do wiersza innego wiersza pomnożonego przez liczbę.</li>
       </ol>
-      <p>Te operacje nie zmieniają zbioru rozwiązań.</p>
+      <p>
+        Te operacje nie zmieniają zbioru rozwiązań – prowadzą do układów równoważnych
+        <span class="odnosnik-zrodlo">
+          [<a href="https://home.agh.edu.pl/~mariuszp/wfiis_mmf/wyklad_mmf1_6_0910.pdf"
+              target="_blank" rel="noopener noreferrer">2</a>]
+        </span>.
+      </p>
 
       <h3>Eliminacja Gaussa — przepis „krok po kroku”</h3>
       <ol>
@@ -59,12 +73,20 @@
       </ol>
       <p class="uwaga">
         Chcesz porządek „do końca”? Można też wyzerować liczby nad „pierwszymi” jedynkami – wtedy otrzymujesz
-        zredukowaną postać schodkową (RREF).
+        zredukowaną postać schodkową (RREF)
+        <span class="odnosnik-zrodlo">
+          [<a href="https://home.agh.edu.pl/~mariuszp/wfiis_mmf/wyklad_mmf1_6_0910.pdf"
+              target="_blank" rel="noopener noreferrer">2</a>]
+        </span>.
       </p>
 
       <h3>Skąd wiadomo, czy rozwiązań jest 0, 1 czy nieskończenie wiele?</h3>
       <p>
-        Korzystamy z twierdzenia Rouché–Capellego: porównujemy rząd (rank) macierzy \(A\) i \([A\mid b]\).
+        Korzystamy z twierdzenia Rouché–Capellego (Kroneckera–Capellego): porównujemy rząd (rank) macierzy \(A\) i \([A\mid b]\)
+        <span class="odnosnik-zrodlo">
+          [<a href="https://www.naukowiec.org/wiedza/matematyka/twierdzenie-kroneckera-capellego_615.html"
+              target="_blank" rel="noopener noreferrer">3</a>]
+        </span>.
       </p>
       <ul>
         <li>rzędy różne → brak rozwiązań,</li>
@@ -74,9 +96,30 @@
 
       <h3>Krótka „legenda” pojęć</h3>
       <ul>
-        <li><strong>Rząd (rank) macierzy</strong> – liczba niezależnych wierszy/kolumn; w praktyce równa liczbie niezerowych wierszy w postaci schodkowej.</li>
-        <li><strong>Postać schodkowa (REF)</strong> – w kolejnych wierszach „pierwsze” niezerowe elementy pojawiają się coraz dalej w prawo, a zera są pod nimi.</li>
-        <li><strong>Zredukowana postać schodkowa (RREF)</strong> – jak wyżej, ale „pierwsze” elementy są równe 1 i w ich kolumnach są same zera (również nad nimi).</li>
+        <li>
+          <strong>Rząd (rank) macierzy</strong> – liczba niezależnych wierszy/kolumn; w praktyce równa liczbie
+          niezerowych wierszy w postaci schodkowej
+          <span class="odnosnik-zrodlo">
+            [<a href="https://home.agh.edu.pl/~mariuszp/wfiis_mmf/wyklad_mmf1_6_0910.pdf"
+                target="_blank" rel="noopener noreferrer">2</a>]
+          </span>.
+        </li>
+        <li>
+          <strong>Postać schodkowa (REF)</strong> – w kolejnych wierszach „pierwsze” niezerowe elementy pojawiają się
+          coraz dalej w prawo, a zera są pod nimi
+          <span class="odnosnik-zrodlo">
+            [<a href="https://home.agh.edu.pl/~mariuszp/wfiis_mmf/wyklad_mmf1_6_0910.pdf"
+                target="_blank" rel="noopener noreferrer">2</a>]
+          </span>.
+        </li>
+        <li>
+          <strong>Zredukowana postać schodkowa (RREF)</strong> – jak wyżej, ale „pierwsze” elementy są równe 1
+          i w ich kolumnach są same zera (również nad nimi)
+          <span class="odnosnik-zrodlo">
+            [<a href="https://home.agh.edu.pl/~mariuszp/wfiis_mmf/wyklad_mmf1_6_0910.pdf"
+                target="_blank" rel="noopener noreferrer">2</a>]
+          </span>.
+        </li>
       </ul>
 
       <h3>Przykład macierzy rozszerzonej (ilustracja zapisu, bez rozwiązywania)</h3>
@@ -94,7 +137,7 @@
   <section class="gauss-sekcja">
     <div class="cta-center">
       <a href="{{ url_for('gauss_przyklady.widok_gauss_przyklady') }}" class="btn-przyklady">
-        Przykładowe rozwiązania
+        Przykładowe rozwiązania metodą eliminacji Gaussa
       </a>
     </div>
   </section>
