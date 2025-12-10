@@ -68,7 +68,7 @@ def test_api_elementy_null_mieszane_typy(klient, matrix):
 
 
 def test_api_liczby_z_przecinkiem(klient):
-    M = [["0,5", "1", "2"], ["1", "1,5", "3"]]  # x1=0, x2=2
+    M = [["0,5", "1", "2"], ["1", "1,5", "3"]]
     r = postuj(klient, {"matrix": M})
     assert r.status_code == 200
     body = r.get_json()
@@ -76,7 +76,7 @@ def test_api_liczby_z_przecinkiem(klient):
 
 
 def test_api_minimalny_1x2(klient):
-    M = [["3", "6"]]  # x1=2
+    M = [["3", "6"]]
     r = postuj(klient, {"matrix": M})
     assert r.status_code == 200
     steps = r.get_json()["steps"]
