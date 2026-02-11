@@ -4,7 +4,7 @@
 
 Celem pracy było stworzenie oraz wdrożenie aplikacji webowej, która wspomaga naukę algebry liniowej w zakresie rozwiązywania układów równań liniowych metodą eliminacji Gaussa.  
 
-Głównym priorytetem było podejście edukacyjne — aplikacja nie tylko podaje wynik, ale również prezentuje szczegółowy proces przekształcania macierzy rozszerzonej \[A|b]\ w postaci kolejnych kroków.
+Głównym priorytetem było podejście edukacyjne — aplikacja nie tylko podaje wynik, ale również prezentuje szczegółowy proces przekształcania macierzy rozszerzonej \[A|b] w postaci kolejnych kroków.
 
 Każdy etap zawiera:
 - opis wykonanej operacji wierszowej,
